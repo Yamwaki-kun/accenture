@@ -1,4 +1,5 @@
 import 'package:accenture/presentation/bloc/menu_bloc.dart';
+import 'package:accenture/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'data/repositories/data_repository_impl.dart';
@@ -33,6 +34,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => MenuBloc(),
+          child: PaginaPrincipal(),
+        ),
+        BlocProvider(
+          create: (_) => ThemeCubit(),
           child: PaginaPrincipal(),
         ),
       ],

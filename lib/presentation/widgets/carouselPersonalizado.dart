@@ -1,3 +1,4 @@
+import 'package:accenture/data/models/app_theme_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -6,19 +7,21 @@ class CarouselPersonalizado extends StatelessWidget {
   final String titulo;
   final String subTitulo;
   final String imageUrl;
+  final AppThemeModel theme;
 
   const CarouselPersonalizado({
     Key? key,
     required this.titulo,
     required this.subTitulo,
     required this.imageUrl,
+    required this.theme
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      color: null,
+      color: theme.backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.zero,
       ),
@@ -40,7 +43,7 @@ class CarouselPersonalizado extends StatelessWidget {
                     titulo,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: theme.primaryColor),
                   ))
             ],
           ),
@@ -58,7 +61,7 @@ class CarouselPersonalizado extends StatelessWidget {
                     subTitulo,
                     maxLines: 5,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 16),
+                    style: TextStyle(fontSize: 16, color: theme.primaryColor),
                   ))),
             ],
           ),
@@ -70,11 +73,12 @@ class CarouselPersonalizado extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 7),
               ),
-              const Text(
+              Text(
                 'Leia mais',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
+                  color: theme.primaryColor
                 ),
               ),
               const Padding(
