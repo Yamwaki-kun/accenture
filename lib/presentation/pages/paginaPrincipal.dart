@@ -13,26 +13,15 @@ class PaginaPrincipal extends StatefulWidget {
 }
 
 class _PaginaPrincipal extends State<PaginaPrincipal> {
-  late ScrollController _scrollController;
-  double _sliderValue = 0.0;
 
   @override
   void initState() {
     super.initState();
-    _scrollController = ScrollController()
-      ..addListener(() {
-        if (_scrollController.hasClients) {
-          setState(() {
-            final maxScrollExtent = _scrollController.position.maxScrollExtent;
-            _sliderValue = _scrollController.offset / maxScrollExtent;
-          });
-        }
-      });
   }
 
   @override
   void dispose() {
-    _scrollController.dispose();
+
     super.dispose();
   }
 
@@ -77,7 +66,7 @@ class _PaginaPrincipal extends State<PaginaPrincipal> {
                 Text(
                   'REINVENTE',
                   style: TextStyle(
-                      fontSize: 60, fontWeight: FontWeight.bold, height: 0),
+                      fontSize: 55, fontWeight: FontWeight.bold, height: 0),
                 )
               ],
             ),
@@ -88,7 +77,7 @@ class _PaginaPrincipal extends State<PaginaPrincipal> {
                 Text(
                   'O POTENCIAL',
                   style: TextStyle(
-                      fontSize: 60, fontWeight: FontWeight.bold, height: 0.3),
+                      fontSize: 55, fontWeight: FontWeight.bold, height: 0.3),
                 )
               ],
             ),
@@ -99,7 +88,7 @@ class _PaginaPrincipal extends State<PaginaPrincipal> {
                 Text(
                   'DA SUA',
                   style: TextStyle(
-                      fontSize: 60, fontWeight: FontWeight.bold, height: 0),
+                      fontSize: 55, fontWeight: FontWeight.bold, height: 0),
                 )
               ],
             ),
@@ -110,7 +99,7 @@ class _PaginaPrincipal extends State<PaginaPrincipal> {
                 Text(
                   'EMPRESA',
                   style: TextStyle(
-                      fontSize: 60, fontWeight: FontWeight.bold, height: 0.3),
+                      fontSize: 55, fontWeight: FontWeight.bold, height: 0.3),
                 )
               ],
             ),
@@ -152,7 +141,6 @@ class _PaginaPrincipal extends State<PaginaPrincipal> {
                     return const Center(child: CircularProgressIndicator());
                   }
                   return ListView.builder(
-                    controller: _scrollController,
                     scrollDirection: Axis.horizontal,
                     itemCount: data.length,
                     itemBuilder: (context, index) {
@@ -169,23 +157,8 @@ class _PaginaPrincipal extends State<PaginaPrincipal> {
                 },
               ),
             ),
-            Slider(
-              min: 0.0,
-              max: 1.0,
-              value: _sliderValue,
-              onChanged: (value) {
-                setState(() {
-                  _sliderValue = value;
-                  // Calcula a nova posição do scroll com base no valor do slider
-                  final maxScrollExtent =
-                      _scrollController.position.maxScrollExtent;
-                  final newScrollOffset = maxScrollExtent * value;
-                  _scrollController.jumpTo(newScrollOffset);
-                });
-              },
-            ),
             const Padding(
-              padding: EdgeInsets.only(bottom: 40),
+              padding: EdgeInsets.only(bottom: 20),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
