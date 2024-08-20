@@ -13,7 +13,7 @@ class DataRepositoryImpl implements DataRepository {
     final dataModels = await remoteDatasource.fetchData();
     return dataModels
         .map((model) => DataEntity(
-            title: model.title, imageURL: model.imageURL, itemId: model.itemId))
+            title: model.title, imageURL: model.imageURL, itemId: model.itemId, description: model.description))
         .toList();
   }
 }

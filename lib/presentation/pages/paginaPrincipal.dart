@@ -191,11 +191,10 @@ class _PaginaPrincipal extends State<PaginaPrincipal> {
                               return CardPersonalizado(
                                   cardId: item.itemId,
                                   titulo: item.title,
-                                  subTitulo:
-                                      "Reinvenção na Era da IA Generativa",
+                                  subTitulo: item.description,
                                   descricao:
                                       "Revelamos cinco imperativos que o C-suite deve abordar para se reinventar na era da IA generativa.",
-                                  imageUrl: item.imageURL);
+                                  imageUrl: "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Total-Enterprise-Reinvention-Glance-Skim-2024-600x848:rad-card-full?ts=1721745969212&fit=constrain&dpr=off");
                             },
                           );
                         },
